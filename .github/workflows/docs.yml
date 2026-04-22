@@ -30,10 +30,13 @@ jobs:
         run: uv python install 3.13
 
       - name: Install docs toolchain
-        run: uv pip install --system -r requirements-docs.txt
+        run: |
+          uv venv
+          source .venv/bin/activate
+          uv add -r requirements-docs.txt
 
       - name: Install project in editable mode
-        run: uv pip install --system -e .
+        run: uv install -e .
 
       - name: Deploy to GitHub Pages
         run: properdocs gh-deploy --force --clean
