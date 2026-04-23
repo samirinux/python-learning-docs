@@ -36,7 +36,7 @@ jobs:
           uv add -r requirements-docs.txt
 
       - name: Install project in editable mode
-        run: uv install -e .
+        run: uv pip install -e .
 
       - name: Deploy to GitHub Pages
         run: properdocs gh-deploy --force --clean
